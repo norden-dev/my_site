@@ -12,7 +12,7 @@ def home(request: HttpRequest) -> HttpResponse:
     Returns:
         HttpResponse: Rendered home page template.
     """
-    return render(request, 'home/home.html')
+    return render(request, 'home/index.html',  {"title": "home", "data": "Welcome to the home page"})
 
 
 def about(request: HttpRequest) -> HttpResponse:
@@ -25,7 +25,7 @@ def about(request: HttpRequest) -> HttpResponse:
     Returns:
         HttpResponse: Rendered about page template.
     """
-    return render(request, 'home/about.html')
+    return render(request, 'home/index.html', {"title": "about", "data": "Welcome to the about page"})
 
 
 def contact(request: HttpRequest) -> HttpResponse:
@@ -38,7 +38,7 @@ def contact(request: HttpRequest) -> HttpResponse:
     Returns:
         HttpResponse: Rendered contact page template.
     """
-    return render(request, 'home/contact.html')
+    return render(request, 'home/index.html', {"title": "contact", "data": "Welcome to the contact page"})
 
 
 def post(request: HttpRequest, post_id: int) -> HttpResponse:
@@ -52,7 +52,7 @@ def post(request: HttpRequest, post_id: int) -> HttpResponse:
     Returns:
         HttpResponse: Rendered post page template with the post ID.
     """
-    return render(request, 'home/post.html', {'post_id': post_id})
+    return render(request, 'home/index.html', {"title": f" post id: {post_id}"})
 
 
 def profile(request: HttpRequest, username: str) -> HttpResponse:
@@ -66,7 +66,7 @@ def profile(request: HttpRequest, username: str) -> HttpResponse:
     Returns:
         HttpResponse: Rendered profile page template with the username.
     """
-    return render(request, 'home/profile.html', {'username': username})
+    return render(request, 'home/index.html', {"title": f"username: {username}"})
 
 
 def event(request: HttpRequest, year: int, month: int, day: int) -> HttpResponse:
@@ -82,8 +82,5 @@ def event(request: HttpRequest, year: int, month: int, day: int) -> HttpResponse
     Returns:
         HttpResponse: Rendered event page template with the date context.
     """
-    return render(request, 'home/event.html', {
-        'year': year,
-        'month': month,
-        'day': day
-    })
+    return render(request, 'home/index.html', {"title": f"year: {year}, month: {month}, day: {day}"})
+
