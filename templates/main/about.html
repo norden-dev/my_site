@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+About
+{% endblock %}
+
+{% block content %}
+
+<h2>Про нас</h2>
+
+<p>
+
+{{ description|truncatechars:120|safe }}
+
+</p>
+
+<p>
+
+
+{{ update_date|date:"Y-m-d" }}
+
+</p>
+
+{% endblock %}
